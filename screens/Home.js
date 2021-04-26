@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, FLatlist } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, FLatlist, FlatList } from 'react-native';
 import { COLORS, icons, images, SIZES, FONTS } from '../constants';
 
 const Home = () => {
     const initialCurrentLocation = {
-        streetName: "Mostaganem",
+        streetName: "Vitry-sur-seine",
         gps: {
             latitude: 1.5496614931250685,
             longitude: 110.36381866919922
@@ -375,7 +375,7 @@ const Home = () => {
                                 borderRadius: SIZES.radius
                             }}
                         >
-                            <Text style={{ ...FONTS.h3 }}>Location</Text>
+                            <Text style={{ ...FONTS.h3 }}>{currentLocation.streetName}</Text>
                         </View>
                 </View>
 
@@ -399,9 +399,64 @@ const Home = () => {
         )
     }
 
+    function renderMainCategories(){
+        const renderItem = ({item}) => {
+            return (
+                <TouchableOpacity
+                    style={{
+                        padding: SIZES.padding,
+                        paddingBottom: SIZES.padding * 2,
+                        backgroundColor: COLORS.primary,
+                        borderRadius: SIZES.radius,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginRight: SIZES.padding, 
+                        ...styles.shadow
+                    }}
+                >
+                    <View
+                        style={{
+                            width: 50,
+                            height: 50,
+                            borderRadius: 25,
+                            alignItems: 'center',
+                            backgroundColor: COLORS.white
+                        }}
+                    >
+                        <Image 
+                            source={item.icon}
+                            resizeMode='contain'
+                            style={{
+                                top: 10,
+                                width: 30,
+                                height: 30
+                            }}
+                        />
+                    </View>
+
+                </TouchableOpacity> 
+            )
+        }
+
+        return (
+            <View style={{ padding: SIZES.padding * 2}}>
+                <Text style={{... FONTS.h1 }}>Catégories</Text>
+                <FlatList
+                    data={categories}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={item => `${item.id}`}
+                    renderItem={renderItem}
+                    contentContainerStyle={{ paddingVertical: SIZES.padding * 2}}
+                />
+            </View>
+        )
+    }
+
     return (
         <SafeAreaView style={styles.container}>
-            {renderHeader()}    
+            {renderHeader()} 
+            {renderMainCategories()}   
         </SafeAreaView>
     )
 }
@@ -409,7 +464,8 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.lightGray4
+        backgroundColor: COLORS.lightGray4,
+        marginTop: 28,
     },
     shadow: {
         shadowColor: '#000',
@@ -418,7 +474,7 @@ const styles = StyleSheet.create({
             height: 3,
         },
         shadowOpacity: 0.1,
-        shadowRadisu: 3,
+        shadowRadius: 3,
         elevation: 1,
     }
 

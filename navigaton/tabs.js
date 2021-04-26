@@ -75,13 +75,14 @@ const CustomTabBar = (props) => {
                     height: 30,
                     backgroundColor: COLORS.white
                 }}
-            >
-            </View>
+            ></View>
             <BottomTabBar {...props.props} />
         </View>
         )
     } else {
-        <BottomTabBar {...props.props} />
+        return (
+            <BottomTabBar {...props.props} />
+        )
     }
 }
 
