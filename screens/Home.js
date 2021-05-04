@@ -406,13 +406,14 @@ const Home = () => {
                     style={{
                         padding: SIZES.padding,
                         paddingBottom: SIZES.padding * 2,
-                        backgroundColor: COLORS.primary,
+                        backgroundColor: (selectedCategory?.id == item.id) ? COLORS.primary : COLORS.white,
                         borderRadius: SIZES.radius,
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginRight: SIZES.padding, 
                         ...styles.shadow
                     }}
+                    onPress={() => onSelectCategory(item)}
                 >
                     <View
                         style={{
@@ -420,7 +421,7 @@ const Home = () => {
                             height: 50,
                             borderRadius: 25,
                             alignItems: 'center',
-                            backgroundColor: COLORS.white
+                            backgroundColor: (selectedCategory?.id == item.id) ? COLORS.white : COLORS.lightGray
                         }}
                     >
                         <Image 
@@ -433,6 +434,15 @@ const Home = () => {
                             }}
                         />
                     </View>
+                    <Text
+                        style={{
+                            marginTop: SIZES.padding,
+                            color: (selectedCategory?.id == item.id) ? COLORS.white : COLORS.black,
+                            ...FONTS.body5
+                        }}
+                    >
+                        {item.name}
+                    </Text>
 
                 </TouchableOpacity> 
             )
