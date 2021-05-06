@@ -335,6 +335,15 @@ const Home = () => {
         setSelectedCategory(category)
     }
 
+    function getCategoryNameById(id){
+        let category = categories.filter(a => a.id == id)
+
+        if(category.length > 0)
+            return category[0].name
+
+        return ""
+    }
+
     function getCategoryNameById(id) {
         let category = categories.filter(a => a.id == id)
 
@@ -519,6 +528,29 @@ const Home = () => {
                                 }}
                             />
                             <Text style={{...FONTS.body3}}>{item.rating}</Text>
+                            {/* Categories */}
+
+                            <View
+                                style={{
+                                    flexDirection: 'row',
+                                    marginLeft: 10
+                                }}
+                                >
+                                {
+                                    item.categories.map((categoryId) =>{
+                                        return (
+                                            <View
+                                                style={{ flexDirection: 'row'}}
+                                                key={categoryId}
+                                            >
+                                                <Text style={{ ...FONTS.body3 }}>
+                                                    {getCategoryNameById(categoryId)}</Text>
+                                                    <Text style={{ ...FONTS.h3, color: COLORS.darkgray }}> . </Text>
+                                            </View>
+                                        )
+                                    })
+                                }
+                            </View>
                         </View>
                 </TouchableOpacity>
         )
