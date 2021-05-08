@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, FLatlist, FlatList } from 'react-native';
 import { COLORS, icons, images, SIZES, FONTS } from '../constants';
 
-const Home = () => {
+const Home = ({navigation}) => {
     const initialCurrentLocation = {
         streetName: "Vitry-sur-seine",
         gps: {
@@ -476,7 +476,10 @@ const Home = () => {
         const renderItem = ({item}) => (
                 <TouchableOpacity
                 style={{marginBottom: SIZES.padding * 2}}
-                //onPress ->navigate to Restaurant screen
+                onPress={() => navigation.navigate("Restaurant", {
+                        item,
+                        currentLocation
+                })}
                 >
                     <View
                         style={{
