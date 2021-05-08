@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, FLatlist, FlatList } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import { COLORS, icons, images, SIZES, FONTS } from '../constants';
 
 const Home = ({navigation}) => {
