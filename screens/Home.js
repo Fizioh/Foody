@@ -550,6 +550,18 @@ const Home = () => {
                                         )
                                     })
                                 }
+
+                                {/* Prix */}
+                                {
+                                    [1, 2, 3].map((priceRating) => (
+                                        <Text
+                                            style={{
+                                                ...FONTS.body3,
+                                                color: (priceRating <= item.priceRating) ? COLORS.black : COLORS.darkgrey
+                                            }}
+                                        ></Text>
+                                    ))
+                                }
                             </View>
                         </View>
                 </TouchableOpacity>
