@@ -48,6 +48,7 @@ const Restaurant = ({ route, navigation }) => {
                 >
                     <View
                         style={{
+                            top: 30,
                             height: 50,
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -58,8 +59,26 @@ const Restaurant = ({ route, navigation }) => {
                     >
                         <Text style={{ ...FONTS.h3 }}>{restaurant?.name}</Text>
                     </View>
-
                 </View>
+
+                <TouchableOpacity
+                    style={{
+                        width: 50,
+                        paddingRight: SIZES.padding * 2,
+                        justifyContent: 'center'
+                    }}
+                >
+                    <Image 
+                        source={icons.list}
+                        resizeMode="contain"
+                        style={{
+                            top: 30,
+                            width: 30,
+                            height: 30
+                        }}
+
+                    />
+                </TouchableOpacity>
 
             </View>
         )
