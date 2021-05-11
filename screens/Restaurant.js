@@ -20,10 +20,9 @@ const Restaurant = ({ route, navigation }) => {
     })
 
     function editOrder(action, menuId, price){
+        let orderList = orderItems.slice()
+        let item = orderList.filter(a => a.menuId == menuId)
         if(action == "+"){
-            let orderList = orderItems.slice()
-            let item = orderList.filter(a = a.menuId == menuId)
-
             if(item.length > 0){
                 let newQty = item[0].qty+1
                 item[0].qty = newQty
@@ -40,7 +39,15 @@ const Restaurant = ({ route, navigation }) => {
 
             setOrderItems(orderList)
         } else {
+            if(item.length > 0){
+                if(item[0]?.qty > 0){
+                    let newQty = item[0].qty-1
+                    item[0].qty = newQty
+                    item[0].total = newQty * price
+                }
+            }
 
+            setOrderItems(orderList)
         }
     }
 
@@ -51,6 +58,12 @@ const Restaurant = ({ route, navigation }) => {
             return orderItem[0].qty
         }
         return 0
+    }
+
+    function getBasketItemCount(){
+        let itemCount = orderItems.reduce((a, b) => a +(b.qty || 0), 0)
+
+        return itemCount
     }
 
     function renderHeader(){
@@ -167,8 +180,8 @@ const Restaurant = ({ route, navigation }) => {
                                             justifyContent: 'center',
                                             borderTopLeftRadius: 25,
                                             borderBottomLeftRadius: 25
-
                                         }}
+                                        onPress={() => editOrder("-", item.menuId, item.price)}
                                     >
                                         <Text style={{ ...FONTS.body1 }}>-</Text>
                                     </TouchableOpacity>
@@ -311,7 +324,7 @@ const Restaurant = ({ route, navigation }) => {
                             borderBottomWidth: 1
                         }}
                     >
-                        <Text style={{ ...FONTS.h3 }}>Panier</Text>
+                        <Text style={{ ...FONTS.h3 }}>{getBasketItemCount()} article(s) dans le panier</Text>
                         <Text style={{ ...FONTS.h3}}>45€</Text>
                     </View>
 
