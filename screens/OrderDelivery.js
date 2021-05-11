@@ -2,9 +2,16 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 const OrderDelivery = () => {
-    return (
+
+    function renderMap(){
         <View>
-            <Text>OrderDelivery</Text>
+            
+        </View>
+    }
+
+    return (
+        <View style={{ flex: 1 }}>
+            {renderMap()}
         </View>
     )
 }
