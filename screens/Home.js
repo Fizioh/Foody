@@ -4,10 +4,10 @@ import { COLORS, icons, images, SIZES, FONTS } from '../constants';
 
 const Home = ({navigation}) => {
     const initialCurrentLocation = {
-        streetName: "Vitry-sur-seine",
+        streetName: "Odaiba",
         gps: {
-            latitude: 1.5496614931250685,
-            longitude: 110.36381866919922
+            latitude: 35.6279, 
+            longitude: 139.7738,
         }
     }
 
@@ -73,7 +73,7 @@ const Home = ({navigation}) => {
     const restaurantData = [
         {
             id: 1,
-            name: "Chez Coco",
+            name: "Wendy's",
             rating: 4.8,
             categories: [5, 7],
             priceRating: affordable,
