@@ -6,8 +6,12 @@ const Home = ({navigation}) => {
     const initialCurrentLocation = {
         streetName: "Odaiba",
         gps: {
+            //Odaiba location
             latitude: 35.6279, 
             longitude: 139.7738,
+            //Kuching (Malaysia) location
+            //latitude: 1.5496614931250685, 
+            //longitude: 110.36381866919922,
         }
     }
 
@@ -80,8 +84,12 @@ const Home = ({navigation}) => {
             photo: images.burger_restaurant_1,
             duration: "30 - 45 min",
             location: {
-                latitude: 1.5347282806345879,
-                longitude: 110.35632207358996,
+                // Kuching location
+                //latitude: 1.5347282806345879,
+                //longitude: 110.35632207358996
+                //Odaiba location
+                latitude : 35.6942,
+                longitude : 139.7027
             },
             courier: {
                 avatar: images.avatar_1,

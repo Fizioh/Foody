@@ -21,7 +21,7 @@ const OrderDelivery = ({ route, navigation }) => {
         let mapRegion = {
             latitude: (fromLoc.latitude + toLoc.latitude) / 2,
             longitude: (fromLoc.longitude + toLoc.longitude) / 2,
-            latitudeDelta: Math.abs(fromLoc.latitude - toLoc.latitude) / 2,
+            latitudeDelta: Math.abs(fromLoc.latitude - toLoc.latitude) * 2,
             longitudeDelta: Math.abs(fromLoc.longitude - toLoc.longitude) * 2
         }
 
@@ -33,19 +33,29 @@ const OrderDelivery = ({ route, navigation }) => {
     }, [])
 
     function renderMap(){
-        const destinationMarker
+        const destinationMarker = () => (
+            <Marker
+            coordinate={toLocation}
+            >
+                <View style={{
+                height: 40,
+                width: 40,
+                borderRadius: 20,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: COLORS.white
+            }}>
+                </View>
+            </Marker>
+        )
+       
 
         return (
         <View style={styles.container}>
      <MapView
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={styles.map}
-       region={{
-         latitude: 35.6279,
-         longitude: 139.7738,
-         latitudeDelta: 0.015,
-         longitudeDelta: 0.0121,
-       }}
+       initialRegion={region}
      >
          {destinationMarker()}
      </MapView>
@@ -62,10 +72,12 @@ const OrderDelivery = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-      ...StyleSheet.absoluteFillObject,
+      //...StyleSheet.absoluteFillObject,
+      flex: 1
     },
     map: {
-      ...StyleSheet.absoluteFillObject,
+       // ...StyleSheet.absoluteFillObject,
+      flex: 1
     },
    });
 
