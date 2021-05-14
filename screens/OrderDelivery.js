@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import { COLORS, FONTS, icons, SIZES, GOOGLE_API_KEY} from "../constants"
+import { COLORS, FONTS, icons, SIZES, GOOGLE_API_KEY} from "../constants";
 
 const OrderDelivery = ({ route, navigation }) => {
 
@@ -45,7 +45,42 @@ const OrderDelivery = ({ route, navigation }) => {
                 justifyContent: 'center',
                 backgroundColor: COLORS.white
             }}>
+                <View
+                    style={{
+                        height: 30,
+                        width: 30,
+                        borderRadius: 15,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: COLORS.primary
+                    }}
+                >
+                    <Image 
+                        source={icons.pin}
+                        style={{
+                            width: 24,
+                            height: 26,
+                            tintColor: COLORS.white
+                        }}
+                    />
                 </View>
+            </View>
+            </Marker>
+        )
+
+        const carIcon = () => (
+            <Marker
+                coordinate={fromLocation}
+                anchor={{ x: 0.5, y: 0.5}}
+                flat={true}
+            >
+                <Image 
+                    source={icons.car}
+                    style={{
+                        width: 40,
+                        height: 40
+                    }}
+                />
             </Marker>
         )
        
@@ -58,6 +93,7 @@ const OrderDelivery = ({ route, navigation }) => {
        initialRegion={region}
      >
          {destinationMarker()}
+         {carIcon()}
      </MapView>
    </View>
    )

@@ -88,8 +88,8 @@ const Home = ({navigation}) => {
                 //latitude: 1.5347282806345879,
                 //longitude: 110.35632207358996
                 //Odaiba location
-                latitude : 35.6942,
-                longitude : 139.7027
+                latitude: 35.628249,
+                longitude: 139.7744155
             },
             courier: {
                 avatar: images.avatar_1,
