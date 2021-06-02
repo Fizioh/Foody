@@ -1,3 +1,6 @@
-const GOOGLE_API_KEY = "AIzaSyD_lMXvGFGsiO2qhvX7Vs49r-sdICRtrAQ"
+import SECRET_API_KEY from "./config.js"
+
+
+const GOOGLE_API_KEY = SECRET_API_KEY;
 
 export default GOOGLE_API_KEY

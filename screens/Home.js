@@ -6,9 +6,9 @@ const Home = ({navigation}) => {
     const initialCurrentLocation = {
         streetName: "Odaiba",
         gps: {
-            //Odaiba location
-            latitude: 35.6279, 
-            longitude: 139.7738,
+            //Paris location
+            latitude: 48.862725, 
+            longitude: 2.287592,
             //Kuching (Malaysia) location
             //latitude: 1.5496614931250685, 
             //longitude: 110.36381866919922,
@@ -88,8 +88,8 @@ const Home = ({navigation}) => {
                 //latitude: 1.5347282806345879,
                 //longitude: 110.35632207358996
                 //Odaiba location
-                latitude: 35.628249,
-                longitude: 139.7744155
+                latitude: 48.78112,
+                longitude: 2.393591
             },
             courier: {
                 avatar: images.avatar_1,
